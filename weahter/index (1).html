@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WeatherNow</title>
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <header class="header" id="main-header">
+    <div class="logo">
+      ☀️ Weather<span>Now</span>
+    </div>
+
+    <div class="search-wrapper">
+      <input
+        type="text"
+        placeholder="Пошук міста..."
+        class="search"
+        id="cityInput"
+      >
+      <div class="favorites-tags" id="favoritesTags"></div>
+    </div>
+
+    <nav class="nav">
+      <a href="#" id="nav-main">Головна</a>
+      <a href="#" id="nav-forecast">Прогноз</a>
+      <a href="#" id="nav-maps">Карти</a>
+      <a href="#" id="nav-about">Про нас</a>
+    </nav>
+
+    <div class="toggle" id="themeToggle" style="cursor: pointer; user-select: none;">
+      🌙
+    </div>
+  </header>
+
+  <section class="weather-box" id="main-section">
+    <div class="left">
+      <div class="location-container">
+        <div class="location">
+          📍 <span id="city">Тернопіль, Україна</span>
+        </div>
+        <button id="favBtn">☆</button>
+      </div>
+      
+      <div class="date">Сьогодні</div>
+
+      <div class="main-weather">
+        <div class="sun">☀️</div>
+        <div>
+          <div class="temp" id="temp">+18°C</div>
+          <div class="status" id="status">Сонячно</div>
+        </div>
+      </div>
+
+      <div class="details">
+        <div>💨 Вітер: <span id="wind">12</span> км/год</div>
+        <div>💧 Вологість: <span id="humidity">45</span>%</div>
+        <div>🌡 Тиск: <span id="pressure">1013</span> гПа</div>
+      </div>
+    </div>
+
+    <div class="clouds">☁️ ☁️</div>
+  </section>
+
+  <h2 class="title" id="forecast-section">
+    Прогноз на тиждень
+  </h2>
+
+  <section class="week">
+    <div class="card active">
+      <h3>Пн</h3>
+      <div class="icon">☀️</div>
+      <div class="degree">+19°</div>
+    </div>
+    <div class="card">
+      <h3>Вт</h3>
+      <div class="icon">🌧️</div>
+      <div class="degree">+14°</div>
+    </div>
+    <div class="card">
+      <h3>Ср</h3>
+      <div class="icon">⛅</div>
+      <div class="degree">+17°</div>
+    </div>
+    <div class="card">
+      <h3>Чт</h3>
+      <div class="icon">☁️</div>
+      <div class="degree">+16°</div>
+    </div>
+    <div class="card">
+      <h3>Пт</h3>
+      <div class="icon">🌧️</div>
+      <div class="degree">+15°</div>
+    </div>
+    <div class="card">
+      <h3>Сб</h3>
+      <div class="icon">☀️</div>
+      <div class="degree">+20°</div>
+    </div>
+    <div class="card">
+      <h3>Нд</h3>
+      <div class="icon">☀️</div>
+      <div class="degree">+19°</div>
+    </div>
+  </section>
+
+  <h2 class="title" id="info-section">
+    Детальна інформація
+  </h2>
+
+  <section class="info">
+    <div class="info-card">
+      <p>💧 Вологість</p>
+      <h3 id="humidity2">45%</h3>
+    </div>
+    <div class="info-card">
+      <p>💨 Вітер</p>
+      <h3 id="wind2">12 км/год</h3>
+    </div>
+    <div class="info-card">
+      <p>🌡 Тиск</p>
+      <h3 id="pressure2">1013 гПа</h3>
+    </div>
+    <div class="info-card">
+      <p>👁 Видимість</p>
+      <h3>10 км</h3>
+    </div>
+  </section>
+
+  <h2 class="title" id="maps-section">Карта локації</h2>
+  <div id="map"></div>
+
+  <footer class="footer" id="about-section">
+    <p style="margin-bottom: 8px; font-weight: bold;">Про нас</p>
+    <p style="font-size: 13px; opacity: 0.8; max-width: 600px; margin: 0 auto 12px;">
+      WeatherNow — це сучасний та швидкий сервіс погоди, що отримує точні метеорологічні дані в реальному часі за допомогою передового API Open-Meteo.
+    </p>
+    © 2026 WeatherNow
+  </footer>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
